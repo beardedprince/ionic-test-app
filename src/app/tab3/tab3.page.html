@@ -1,17 +1,29 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Profile
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content >
+  <ion-avatar class="profile" (click)="uploadPic()">
+    <ion-skeleton-text *ngIf="!myProfileImage" animated class="profile"></ion-skeleton-text>
+    <!-- <ion-img *ngIf="!myProfileImage" src="https://avatars.githubusercontent.com/u/30920382?v=4" class="profile"> </ion-img> -->
+    <ion-img *ngIf="myProfileImage" [src]="myProfileImage " class="profile"> 
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+    </ion-img>
+  </ion-avatar>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        BeardedPrince
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, non?
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

@@ -1,0 +1,15 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>activity-video</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content color="dark">
+  <p>Video preview</p>
+  <video autoplay [src]="videoURL" class="activity-vid"></video>
+<ion-fab vertical="bottom" horizontal ="center" slot="fixed">
+  <ion-fab-button color="danger" (click)="closeModal()">
+    <ion-icon name="close" ></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+</ion-content>

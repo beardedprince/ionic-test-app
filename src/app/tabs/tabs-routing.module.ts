@@ -1,15 +1,27 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { TabsGuard } from '../tabs.guard';
 import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
     path: 'tabs',
     component: TabsPage,
+    canActivate: [TabsGuard],
     children: [
       {
         path: 'tab1',
-        loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+            
+          },
+          {
+            path: 'activity-detail/:id',
+            loadChildren: () => import('../activity-detail/activity-detail.module').then( m => m.ActivityDetailPageModule)
+          }
+        ]
       },
       {
         path: 'tab2',
@@ -28,7 +40,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/login',
     pathMatch: 'full'
   }
 ];
